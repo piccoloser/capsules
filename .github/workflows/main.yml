@@ -1,0 +1,46 @@
+name: Format
+
+on: [push, pull_request]
+
+jobs:
+
+  format:
+    name: Format Code
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Upgrade pip & install Black, isort
+        run: python -m pip install --upgrade pip black isort
+
+      - name: Run Black on current directory
+        run: python -m black .
+
+      - name: Run isort on current directory
+        run: isort --profile black .
+
+      - name: Set commit user and email
+        run: git config user.name "Black"; git config user.email "<>"
+
+      - name: Stage changed files
+        run: git add .
+
+      - name: Commit changed files
+        run: git commit -m "Format Files"
+
+      - name: Push code to main
+        run: git push origin HEAD:main
+
+  test:
+    name: Test Code
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Upgrade pip & install requirements
+        run: python -m pip install --upgrade pip -r ./requirements.txt
+
+      - name: Run Pytest on current directory (verbose)
+        run: pytest -v
