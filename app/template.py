@@ -3,7 +3,6 @@
 import importlib
 import pathlib
 import tkinter as tk
-
 from abc import ABC, abstractmethod
 from dataclasses import dataclass
 

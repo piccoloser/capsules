@@ -4,10 +4,10 @@ import configparser
 import subprocess
 import sys
 import tkinter as tk
+from tkinter import messagebox
 
 from app import config, template
 from app.constants import DEFAULT, USER
-from tkinter import messagebox
 
 
 class App(tk.Tk):
