@@ -3,6 +3,7 @@ settings.ini
 app/templates/*
 !app/templates/__init__.py
 !app/templates/default.py
+!app/templates/empty.py
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
