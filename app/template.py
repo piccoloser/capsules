@@ -2,6 +2,8 @@
 
 import importlib
 import pathlib
+import tkinter as tk
+
 from abc import ABC, abstractmethod
 from dataclasses import dataclass
 
@@ -15,6 +17,9 @@ class TemplateBase(ABC):
     height: int
     x: int
     y: int
+
+    def __init__(self, root: tk.Tk):
+        self.frame = tk.Frame(root)
 
     @abstractmethod
     def build_gui(self):
@@ -38,4 +43,4 @@ def load(filename: str) -> TemplateBase or None:
         import_path = filename.as_posix().replace("/", ".").replace(".py", "")
         source = importlib.import_module(import_path)
 
-        return source.template
+        return source.Template
