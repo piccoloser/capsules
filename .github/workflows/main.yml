@@ -23,11 +23,6 @@ jobs:
       - name: Set commit user and email
         run: git config user.name "Black"; git config user.email "<>"
 
-      # - name: Extract branch
-      #   shell: bash
-      #   run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
-      #   id: extract_branch
-
       - name: Stage changed files
         run: git add .
 
@@ -35,7 +30,7 @@ jobs:
         run: git commit -m "Format Files"
 
       - name: Push to branch
-        run: git push origin HEAD # ${{ steps.extract_branch.outputs.branch }}
+        run: git push origin HEAD
 
   test:
     name: Test Code
