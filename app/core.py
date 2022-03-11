@@ -1,10 +1,10 @@
 """Program-specific classes and functions."""
 
-from app import config, template
-from app.constants import DEFAULT, USER
-
 import configparser
 import tkinter as tk
+
+from app import config, template
+from app.constants import DEFAULT, USER
 
 
 class App(tk.Tk):
