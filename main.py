@@ -15,7 +15,7 @@ def check_for_updates() -> None:
     if update_available:
         messagebox.showinfo(
             "Update Available",
-            "There is a new version available!\n" "Please go to About > Update.",
+            "There is a new version available!\nPlease go to About > Update.",
         )
 
 
