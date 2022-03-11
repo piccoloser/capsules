@@ -1,5 +1,8 @@
 # Program-specific
 settings.ini
+app/templates/*
+!app/templates/__init__.py
+!app/templates/default.py
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
