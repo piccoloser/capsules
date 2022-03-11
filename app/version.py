@@ -1,9 +1,10 @@
 """Functions used to check for updates using the GitHub API"""
 
-from app.constants import APP_VERSION, GITHUB_API_URL, GITHUB_RELEASES_URL
+import webbrowser
 
 import requests
-import webbrowser
+
+from app.constants import APP_VERSION, GITHUB_API_URL, GITHUB_RELEASES_URL
 
 
 def update_available() -> bool:

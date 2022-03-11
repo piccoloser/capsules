@@ -1,7 +1,8 @@
 """Entry point for program."""
 
-from app import config, constants, core, version
 from tkinter import messagebox
+
+from app import config, constants, core, version
 
 
 def show_help() -> None:

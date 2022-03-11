@@ -1,5 +1,8 @@
 """Functions to handle user settings."""
 
+import pathlib
+from configparser import ConfigParser
+
 from app.constants import (
     DEFAULT,
     DEFAULT_SETTINGS,
@@ -7,10 +10,6 @@ from app.constants import (
     SETTINGS_PATH,
     USER,
 )
-from configparser import ConfigParser
-
-import pathlib
-
 
 DEFAULT_CONFIG = ConfigParser()
 DEFAULT_CONFIG[DEFAULT] = DEFAULT_SETTINGS

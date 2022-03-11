@@ -1,11 +1,11 @@
 """Template for PDF and corresponding forms."""
 
-from abc import ABC, abstractmethod
-from app.constants import TEMPLATE_PATH
-from dataclasses import dataclass
-
 import importlib
 import pathlib
+from abc import ABC, abstractmethod
+from dataclasses import dataclass
+
+from app.constants import TEMPLATE_PATH
 
 
 @dataclass
