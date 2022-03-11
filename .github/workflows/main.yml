@@ -23,6 +23,9 @@ jobs:
       - name: Set commit user and email
         run: git config user.name "Black"; git config user.email "<>"
 
+      - name: Git pull
+        run: git pull
+
       - name: Stage changed files
         run: git add .
 
