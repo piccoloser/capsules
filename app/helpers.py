@@ -1,1 +1,1 @@
-"""Additional, nonspecific functions and classes"""
+"""Generic classes and functions."""
