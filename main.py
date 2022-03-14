@@ -21,17 +21,14 @@ def check_for_updates() -> None:
 
 
 def main():
-    match constants.SETTINGS_PATH.is_file():
-        case True:
-            cfg = config.read(constants.SETTINGS_PATH)
+    if constants.SETTINGS_PATH.is_file():
+        cfg = config.read(constants.SETTINGS_PATH)
 
-        case False:
-            cfg = config.first_run()
+    else:
+        cfg = config.first_run()
 
     root = core.App(cfg)
     root.mainloop()
-
-    return
 
 
 if __name__ == "__main__":
