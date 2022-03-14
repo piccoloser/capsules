@@ -4,7 +4,9 @@ from .. import template
 
 
 class Template(template.TemplateBase):
-    title = "Ffiller"
+    """Empty Ffiller Template"""
+
+    title = "Empty"
     width = 300
     height = 200
     x = 50

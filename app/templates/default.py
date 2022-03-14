@@ -1,38 +1,58 @@
 import tkinter as tk
 
-from .. import template
-from ..helpers import LabeledEntry, Selector
+from .. import config, template
+from ..helpers import LabeledSelector
 
 
 class Template(template.TemplateBase):
     """Ffiller Template Selector"""
 
-    title = "Ffiller (Select a Template)"
-    width = 500
-    height = 500
+    title = "Ffiller"
+    width = 400
+    height = 250
     x = 50
     y = 50
 
     def __init__(self, root: tk.Tk):
         super().__init__(root)
+        self.root = root
 
     def build_gui(self):
-        entry1 = LabeledEntry(self.frame, "MyEntry")
-        entry1.grid()
+        template_names = template.get_all_except(["default", "empty"])
+        templates = template.load_multiple(template_names)
 
-        sel1 = Selector(
-            self.frame, "Select an Option", [*range(1, 21)], lambda x: str(x)
+        lbl_inst = tk.Label(self.frame, text="Select an application template!")
+
+        sel_template = LabeledSelector(
+            self.frame, "Template", templates, lambda i: i.title
         )
-        sel1.grid()
 
-        tk.Button(
-            self.frame, text="Test Entry", command=lambda: print(entry1.entry.get())
-        ).grid()
-        tk.Button(
-            self.frame, text="Test Selector", command=lambda: print(sel1.value)
-        ).grid()
+        var_default = tk.IntVar()
+        chk_default = tk.Checkbutton(
+            self.frame, text="Make Default", variable=var_default
+        )
+
+        btn_launch = tk.Button(
+            self.frame,
+            text="Launch Template",
+            command=lambda: self.launch(
+                template_names[sel_template.value_index()], var_default.get()
+            ),
+        )
+
+        for widget in (lbl_inst, sel_template, chk_default, btn_launch):
+            widget.grid(pady=5)
 
         self.frame.grid()
 
     def build_menu(self):
         ...
+
+    def launch(self, selection, default):
+        if not default:
+            config.once(self.root.cfg, template=selection)
+
+        else:
+            self.root.set_prefs(confirm=False, template=selection)
+
+        self.root.restart()
