@@ -13,7 +13,7 @@ from app.constants import (
     USER,
 )
 
-DEFAULT_CONFIG = ConfigParser(allow_no_value=True)
+DEFAULT_CONFIG = ConfigParser()
 DEFAULT_CONFIG[DEFAULT] = DEFAULT_SETTINGS
 DEFAULT_CONFIG[ONCE] = ONCE_SETTINGS
 DEFAULT_CONFIG[USER] = DEFAULT_USER_SETTINGS
@@ -54,7 +54,7 @@ def once(parser: ConfigParser, **once_settings) -> None:
 
 def read(path: pathlib.Path) -> ConfigParser:
     """Read a settings file and return a ConfigParser."""
-    config = ConfigParser(allow_no_value=True)
+    config = ConfigParser()
     config.read(path)
 
     return config
