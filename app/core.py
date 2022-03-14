@@ -39,7 +39,12 @@ class App(tk.Tk):
 
     def restart(self) -> None:
         """Restart the program."""
-        self.destroy()
+        try:
+            self.destroy()
+
+        except tk.TclError:
+            quit()
+
         subprocess.call([sys.executable, *sys.argv])
 
     def set_prefs(self, confirm: bool = True, **user_settings) -> None:
