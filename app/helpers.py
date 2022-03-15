@@ -14,7 +14,9 @@ class LabeledEntry(tk.Frame):
         self.label = tk.Label(self, text=text)
         self.entry = tk.Entry(self)
 
-        self.label.grid(row=0, column=0)
+        self.grid_columnconfigure(0, weight=1)
+
+        self.label.grid(row=0, column=0, sticky=tk.E)
         self.entry.grid(row=0, column=1)
 
     @property
