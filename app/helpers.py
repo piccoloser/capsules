@@ -8,7 +8,7 @@ from typing import Any, Callable
 class LabeledEntry(tk.Frame):
     """Simple line-entry with label"""
 
-    def __init__(self, root: tk.Frame, text: str):
+    def __init__(self, root: tk.Frame, text: str = ""):
         super().__init__(root)
 
         self.label = tk.Label(self, text=text)
