@@ -1,6 +1,8 @@
 # Program-specific
 settings.ini
+app/resources/*
 app/templates/*
+!app/resources/RobotoMono-Regular.ttf
 !app/templates/__init__.py
 !app/templates/default.py
 !app/templates/empty.py
