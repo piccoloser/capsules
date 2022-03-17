@@ -23,6 +23,9 @@ class LabeledEntry(tk.Frame):
     def value(self) -> str:
         return self.entry.get()
 
+    def insert(self, index: int, value: str) -> None:
+        self.entry.insert(index, value)
+
 
 class LabeledSelector(tk.Frame):
     """Simple dropdown selector.
