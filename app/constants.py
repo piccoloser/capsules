@@ -1,4 +1,5 @@
 import pathlib
+
 from PIL import ImageFont
 
 # app information
