@@ -29,8 +29,8 @@ jobs:
       - name: Commit changed files
         run: git commit -m "Format Files"
 
-      - name: Push code to main
-        run: git push origin HEAD:main
+      - name: Push to branch
+        run: git push origin HEAD
 
   test:
     name: Test Code
