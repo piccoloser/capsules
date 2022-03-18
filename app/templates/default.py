@@ -45,7 +45,7 @@ class Template(template.TemplateBase):
 
         self.frame.grid()
 
-    def build_menu(self):
+    def extend_menu(self):
         ...
 
     def launch(self, selection, default):

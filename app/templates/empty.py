@@ -18,5 +18,5 @@ class Template(template.TemplateBase):
     def build_gui(self):
         self.frame.grid()
 
-    def build_menu(self):
+    def extend_menu(self):
         ...

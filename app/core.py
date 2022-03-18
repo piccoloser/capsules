@@ -34,16 +34,34 @@ class App(tk.Tk):
         self.grid_columnconfigure(0, weight=1)
         self.grid_rowconfigure(0, weight=1)
 
-        self.template.build_menu()
+        self.build_menu()
+        self.template.extend_menu()
+
+        super().config(menu=self.template.menu)
+
         self.template.build_gui()
 
-    def restart(self) -> None:
+    def build_menu(self):
+        """Build the default menu bar."""
+        menu = self.template.menu
+
+        self.menu_about = tk.Menu(menu, tearoff=0)
+        self.menu_about.add_command(
+            label="Select Template", command=lambda: self.restart(True)
+        )
+
+        menu.add_cascade(label="About", menu=self.menu_about)
+
+    def restart(self, select_template: bool = False) -> None:
         """Restart the program."""
         try:
             self.destroy()
 
         except tk.TclError:
             quit()
+
+        if select_template:
+            config.once(self.cfg, template="default")
 
         subprocess.call([sys.executable, *sys.argv])
 

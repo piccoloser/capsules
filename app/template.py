@@ -18,7 +18,9 @@ class TemplateBase(ABC):
     y: int
 
     def __init__(self, root: tk.Tk):
-        self.frame = tk.Frame(root)
+        self.root = root
+        self.frame = tk.Frame(self.root)
+        self.menu = tk.Menu(self.root)
 
     @abstractmethod
     def build_gui(self):
@@ -28,10 +30,6 @@ class TemplateBase(ABC):
     @abstractmethod
     def extend_menu(self):
         """Add items to the menu bar."""
-        ...
-
-    def build_menu(self):
-        """Construct the menu bar."""
         ...
 
     @property
