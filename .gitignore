@@ -6,6 +6,7 @@ app/templates/*
 !app/templates/__init__.py
 !app/templates/default.py
 !app/templates/empty.py
+output/*
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
