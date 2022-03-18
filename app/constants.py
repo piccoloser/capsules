@@ -1,4 +1,5 @@
 import pathlib
+from PIL import ImageFont
 
 # app information
 APP_VERSION: str = "v0.0.1"
@@ -9,6 +10,8 @@ OUTPUT_PATH: pathlib.Path = pathlib.Path("./output/")
 RESOURCES_PATH: pathlib.Path = pathlib.Path("./app/resources/")
 SETTINGS_PATH: pathlib.Path = pathlib.Path("settings.ini")
 TEMPLATE_PATH: str = "./app/templates/"
+
+FONT_PATH: pathlib.Path = RESOURCES_PATH / "RobotoMono-Regular.ttf"
 
 DEFAULT: str = "DEFAULT"
 DEFAULT_SETTINGS: dict = {"template": "default"}
