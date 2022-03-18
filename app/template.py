@@ -26,6 +26,10 @@ class TemplateBase(ABC):
         ...
 
     @abstractmethod
+    def extend_menu(self):
+        """Add items to the menu bar."""
+        ...
+
     def build_menu(self):
         """Construct the menu bar."""
         ...
