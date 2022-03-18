@@ -26,7 +26,13 @@ class App(tk.Tk):
             or config.get(self.cfg, DEFAULT, "template")
         )
 
-        self.template = self._template_class(self)
+        try:
+            self.template = self._template_class(self)
+
+        # if template doesn't exist for any reason, load default
+        except TypeError:
+            self._template_class = template.load("default")
+            self.template = self._template_class(self)
 
         self.title(self.template.title)
         self.geometry(self.template.geometry)

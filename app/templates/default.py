@@ -23,9 +23,10 @@ class Template(template.TemplateBase):
 
         lbl_inst = tk.Label(self.frame, text="Select an application template!")
 
-        sel_template = LabeledSelector(
-            self.frame, "Template", templates, lambda i: i.title
-        )
+        if templates:
+            sel_template = LabeledSelector(
+                self.frame, "Template", templates, lambda i: i.title
+            )
 
         var_default = tk.IntVar()
         chk_default = tk.Checkbutton(
@@ -39,6 +40,11 @@ class Template(template.TemplateBase):
                 template_names[sel_template.value_index()], var_default.get()
             ),
         )
+
+        if not templates:
+            sel_template = tk.Label(self.frame, text="[No Templates Available]")
+            chk_default.configure(state=tk.DISABLED)
+            btn_launch.configure(state=tk.DISABLED)
 
         for widget in (lbl_inst, sel_template, chk_default, btn_launch):
             widget.grid(pady=5)
