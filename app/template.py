@@ -7,6 +7,7 @@ from abc import ABC, abstractmethod
 from dataclasses import dataclass
 
 from app.constants import TEMPLATE_PATH
+from app.core import App
 
 
 @dataclass
@@ -21,6 +22,7 @@ class TemplateBase(ABC):
         self.root = root
         self.frame = tk.Frame(self.root)
         self.menu = tk.Menu(self.root)
+        self.menu_options: tk.Menu = None
 
     @abstractmethod
     def build_gui(self):
@@ -35,6 +37,17 @@ class TemplateBase(ABC):
     @property
     def geometry(self) -> str:
         return f"{self.width}x{self.height}+{self.x}+{self.y}"
+
+    def build_menu(self, app: App):
+        """Build the default menu bar."""
+        self.menu_options = tk.Menu(self.menu, tearoff=0)
+        self.menu_options.add_command(
+            label="Select Template", command=lambda: app.restart(True)
+        )
+
+        self.menu_options.add_command(label="Import Template", command=import_template)
+
+        self.menu.add_cascade(label="Options", menu=self.menu_options)
 
 
 def get_all_except(ignored: list[str] = None) -> list[str]:
@@ -55,6 +68,14 @@ def get_all_except(ignored: list[str] = None) -> list[str]:
 def get_import_path(filepath: pathlib.Path) -> str:
     """Convert a filepath to Python import format."""
     return filepath.as_posix().replace("/", ".").replace(".py", "")
+
+
+def import_template() -> None:
+    """Unpack a template for use in the program."""
+    # get zip file
+    # validate contents
+    # unpack template and resources
+    # notify user of success
 
 
 def load(filename: str) -> TemplateBase:
