@@ -6,7 +6,7 @@ import sys
 import tkinter as tk
 from tkinter import messagebox
 
-from app import config, template
+from app import config
 from app.constants import DEFAULT, ONCE, USER
 
 
@@ -14,6 +14,8 @@ class App(tk.Tk):
     """Main Application."""
 
     def __init__(self, cfg: configparser.ConfigParser):
+        from app import template
+
         super().__init__()
         super().protocol("WM_DELETE_WINDOW", self.teardown)
 
@@ -40,23 +42,12 @@ class App(tk.Tk):
         self.grid_columnconfigure(0, weight=1)
         self.grid_rowconfigure(0, weight=1)
 
-        self.build_menu()
+        self.template.build_menu(self)
         self.template.extend_menu()
 
         super().config(menu=self.template.menu)
 
         self.template.build_gui()
-
-    def build_menu(self):
-        """Build the default menu bar."""
-        menu = self.template.menu
-
-        self.menu_about = tk.Menu(menu, tearoff=0)
-        self.menu_about.add_command(
-            label="Select Template", command=lambda: self.restart(True)
-        )
-
-        menu.add_cascade(label="About", menu=self.menu_about)
 
     def restart(self, select_template: bool = False) -> None:
         """Restart the program."""
