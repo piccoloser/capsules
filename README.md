@@ -1,32 +1,24 @@
-# Python Project Template
+# Ffiller
 
-### This project template includes the following files and folders:
-#### `/.vscode`
-* `launch.json`
-    * Forces `main.py` when the program is run, assuming you use VS Code
+A simple, modular GUI-application launcher.
 
-#### `/app`
-* `constants.py`
-    * Includes constant `APP_VERSION`, a `str` set to "v0.0.1" by default
-* `core.py`
-* `helpers.py`
+### Behind the Name
+*This program was originally written to automate filling out PDF Documents (Form-Filler &rarr; Ffiller). The program will likely be renamed in the near future.*
 
-#### `/tests`
-* `test_main.py`
-    * Includes two default tests that should always pass:
-        * `test_int()`
-        * `test_imports()`
+## The Basics
+### No templates installed:
+![No Templates](../media/ffiller-no_template.png)
 
-#### `/`
-* `main.py`
-    * Includes boilerplate `main()` function
-* `README.md`
-    * This file
-* `requirements.txt`
-    * Required imports for this workflow
+### With a template installed:
+![Template Available](../media/ffiller-template.png)
 
-### This project uses the following modules by default:
-* `pretty_errors`
-* `pytest`
+### Example Template:
+![Example Template](../media/ffiller-example_gui.png)
 
-*When you push to your repository or create a pull request, GitHub Actions will automatically format your code using `Black`, sort imports using `isort`, and runs tests using `pytest` (required).*
+### Default Options Menu:
+![Default Options Menu](../media/ffiller-example_options.png)
+
+## Creating a Template
+First, you'll need a `.py` file with the same basic layout as [empty.py](./app/templates/empty.py), saved in `/app/templates`. You can declare your program's GUI within `Template.build_gui()` and program-specific menu options under `Template.extend_menu()`. Your program's necessary functions can be added as needed, and resources should be kept in `/app/resources/YOUR_TEMPLATE`.
+
+To remove a template, delete the `.py` file and all associated resources. A method of adding and removing templates from within the program is under development.
