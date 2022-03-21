@@ -87,7 +87,7 @@ class Spec:
         return f"./{self._name}.spec"
 
 
-s = Spec(name="Ffiller")
+s = Spec("Ffiller")
 
 s.add_data(
     ("app", "app"),
