@@ -7,9 +7,9 @@ class Spec:
 
     def __init__(
         self,
+        name: str,
         filename: str = "main.py",
         path_separator: str = ";",
-        name: str = "",
         console: bool = False,
     ):
         self.filename = filename
