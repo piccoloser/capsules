@@ -45,7 +45,9 @@ class TemplateBase(ABC):
             label="Select Template", command=lambda: app.restart(True)
         )
 
-        self.menu_options.add_command(label="Import Template", command=import_template)
+        self.menu_options.add_command(
+            label="Import Template", command=import_template, state=tk.DISABLED
+        )
 
         self.menu.add_cascade(label="Options", menu=self.menu_options)
 
