@@ -4,16 +4,16 @@ A simple, modular GUI-application launcher.
 
 ## The Basics
 ### No templates installed:
-![No Templates](../media/ffiller-no_template.png)
+![No Templates](../media/no_template.png)
 
 ### With a template installed:
-![Template Available](../media/ffiller-template.png)
+![Template Available](../media/with_templates.png)
 
 ### Example Template:
-![Example Template](../media/ffiller-example_gui.png)
+![Example Template](../media/example_template.png)
 
 ### Default Options Menu:
-![Default Options Menu](../media/ffiller-example_options.png)
+![Default Options Menu](../media/example_options.png)
 
 ## Creating a Template
 First, you'll need a `.py` file with the same basic layout as [empty.py](./app/templates/empty.py), saved in `/app/templates`. You can declare your program's GUI within `Template.build_gui()` and program-specific menu options under `Template.extend_menu()`. Your program's necessary functions can be added as needed, and resources should be kept in `/app/resources/YOUR_TEMPLATE`.
