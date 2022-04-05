@@ -1,9 +1,6 @@
-# Ffiller
+# Capsules
 
 A simple, modular GUI-application launcher.
-
-### Behind the Name
-*This program was originally written to automate filling out PDF Documents (Form-Filler &rarr; Ffiller). The program will likely be renamed in the near future.*
 
 ## The Basics
 ### No templates installed:
