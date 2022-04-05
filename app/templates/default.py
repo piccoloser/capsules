@@ -5,9 +5,9 @@ from ..helpers import LabeledSelector
 
 
 class Template(template.TemplateBase):
-    """Ffiller Template Selector"""
+    """Capsules Template Selector"""
 
-    title = "Ffiller"
+    title = "Capsules"
     width = 400
     height = 250
     x = 50
